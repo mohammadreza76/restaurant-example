@@ -5,10 +5,14 @@ from django.contrib.auth.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        #fields = ['id','username','groups']
+        #fields = ['id','username','groups','email']
         fields='__all__'
         
-
+class CreateUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username','password','email']
+        
 
 class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:

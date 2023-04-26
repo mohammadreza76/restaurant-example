@@ -3,7 +3,7 @@ from rest_framework import generics,status
 from rest_framework.decorators import api_view,permission_classes,action
 from .serializers import *
 from rest_framework.permissions import IsAuthenticatedOrReadOnly,DjangoModelPermissions,IsAuthenticated
-from django.contrib.auth.models import User,Group
+from django.contrib.auth.models import User
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 import random,datetime
@@ -191,8 +191,10 @@ def change_delete_get_order_item(request,pk):
         
         else:
             return Response(status=status.HTTP_403_FORBIDDEN)
-        
-    
-    
+ 
+#create user           
+class CreateUser(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = CreateUserSerializer
     
     

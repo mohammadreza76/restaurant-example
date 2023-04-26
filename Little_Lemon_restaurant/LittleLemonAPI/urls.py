@@ -11,5 +11,6 @@ urlpatterns =[
     path('cart/menu-items',views.show_add_delete_items_cart),#show-add-delete cart
     path('orders',views.create_retrieve_order),
     path('orders/<int:pk>',views.change_delete_get_order_item),
+    path('users',views.CreateUser.as_view())
     
 ]
